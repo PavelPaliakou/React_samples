@@ -1,0 +1,35 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    height: 100%;
+    min-height: 100vh;
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-container button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem 0.5rem;
+    cursor: pointer;
+    background-color: beige;
+}
+
+.accordion-container {
+    background-color: beige;
+}
+
+.accordion-content {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.show-hide {
+    cursor: pointer;
+    padding: 0.5rem;
+    background-color: rgb(214, 214, 180);
+}
