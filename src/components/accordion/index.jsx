@@ -2,11 +2,9 @@ import { useState } from "react";
 import { data } from "./data.js";
 import "./styles.css";
 
-//FIXME: bug when expand in single mode and then switch to multiple mode
-//TODO: show/hide in multiple mode
+//FIXME: hide all content when disabled multi selection
 
 export default function AccordionBlock() {
-    const [selectedItem, setSelectedItem] = useState(null);
     const [selectedItems, setSelectedItems] = useState([]);
     const [isMultiSelection, setIsMultiSelection] = useState(false);
 
@@ -24,16 +22,16 @@ export default function AccordionBlock() {
                 newItems.push(id);
             }
 
-            setSelectedItem(null);
             setSelectedItems(newItems);
 
         } else {
-            if (selectedItem === id) {
-                setSelectedItem(null);
+            if (selectedItems.includes(id)) {
+                setSelectedItems([]);
             } else {
-                setSelectedItem(id);
+                setSelectedItems([id]);
             }
         }
+
     }
 
     return (
@@ -49,16 +47,14 @@ export default function AccordionBlock() {
                         <div>
                             <h1>{e.question}</h1>
                         </div>
-                        <div className="show-hide" onClick={() => expandHandle(e.id)}>
+                        <span className="show-hide" onClick={() => expandHandle(e.id)}>
                             {
-                                selectedItem === e.id || selectedItems.indexOf(e.id) !== -1 ?
-                                    <span>hide</span>
-                                    : <span>show</span>
+                                selectedItems.indexOf(e.id) !== -1 ? "hide" : "show"
                             }
-                        </div>
+                        </span>
 
                         {
-                            selectedItem === e.id || selectedItems.indexOf(e.id) !== -1 ?
+                            selectedItems.indexOf(e.id) !== -1 ?
                                 <div className="accordion-content">{e.answer}</div>
                                 : null
                         }

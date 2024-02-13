@@ -1,0 +1,48 @@
+.color-generator-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.controls button {
+    font-size: 1.5rem;
+    padding: 1rem 0.5rem;
+    border-radius: 0.5rem;
+}
+ 
+.color-types {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+.color-types legend {
+    float: left;
+}
+
+.type-group {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.color-description {
+    position: absolute;
+    top: 50%;
+    font-size: 4rem;
+    font-weight: bold;
+    background-color: white;
+    border-radius: 0.5rem;
+}
