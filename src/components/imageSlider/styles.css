@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.main-image {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: aquamarine;
+}
+
+.main-image button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    text-decoration: none;
+    background-color: white;
+}
+
+.left-arrow {
+    left: 5%;
+}
+
+.right-arrow {
+    right: 5%;
+}
+
+.row-of-images {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    width: 500px;
+    background-color: antiquewhite;
+}
