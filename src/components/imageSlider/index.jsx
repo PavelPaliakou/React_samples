@@ -1,72 +1,90 @@
 import "./styles.css";
 import { useEffect, useState } from "react";
 
-export default function ImageSlider() {
-    const [currentIndex, setCurrentIndex] = useState(0);
+//TODO: why doesn't work without images check?
+
+export default function ImageSlider({ url, limit = 10, page = 1 }) {
     const [images, setImages] = useState([]);
-    let url = "https://picsum.photos/v2/list?page=1&limit=10";
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [errorMessage, setErrorMessage] = useState(null);
 
-    async function fetchImages(getUrl) {
-        const response = await fetch(`${getUrl}`);
-        const data = await response.json();
+    async function fetchImages(fetchUrl) {
+        try {
+            const response = await fetch(`${fetchUrl}?page=${page}&limit=${limit}`);
+            const data = await response.json();
 
-        console.log(data);
+            if (data) {
+                setImages(data);
+                setCurrentImageIndex(0);
+            }
 
-        if (data) {
-            setImages(data.map((item) => item.download_url));
+        } catch (error) {
+            setErrorMessage(error.message);
         }
     }
 
     useEffect(() => {
-        if (url !== "") fetchImages(url);
+        if (url !== "") {
+            fetchImages(url);
+        }
     }, [url]);
 
+    if (errorMessage !== null) {
+        return <div>{errorMessage}</div>
+    }
 
     function arrowHandler(offset) {
 
-        if (currentIndex + offset < 0) {
-            setCurrentIndex(images.length - 1);
+        if (currentImageIndex + offset < 0) {
+            setCurrentImageIndex(images.length - 1);
             return;
         }
 
-        if (currentIndex + offset >= images.length) {
-            setCurrentIndex(0);
+        if (currentImageIndex + offset >= images.length) {
+            setCurrentImageIndex(0);
             return;
         }
 
-        setCurrentIndex(currentIndex + offset);
+        setCurrentImageIndex(currentImageIndex + offset);
     }
+
+    console.log(currentImageIndex);
+    console.log(images);
 
     return (
         <div className="container">
             <div className="slider-container">
-                <div className="main-image">
-                    <button className="left-arrow" onClick={() => arrowHandler(-1)}>
-                        &larr;
-                    </button>
+                <button className="arrow left-arrow" onClick={() => arrowHandler(-1)}>
+                    &larr;
+                </button>
 
-                    <img width={500} height={500} src={images[currentIndex]} alt="something" />
+                {images && images.length
+                    ? <img
+                        className="main-image"
+                        src={images[currentImageIndex].download_url}
+                        alt={`Made by ${images[currentImageIndex].author}`} />
+                    : null
+                }
 
-                    <button className="right-arrow" onClick={() => arrowHandler(1)}>
-                        &rarr;
-                    </button>
-                </div>
-
-                <div className="row-of-images">
+                <button className="arrow right-arrow" onClick={() => arrowHandler(1)}>
+                    &rarr;
+                </button>
+                <span className="indicators-container">
                     {
-                        images.map((image, index) => {
-                            return (
-                                <img key={index}
-                                    width={100} height={100}
-                                    style={{ opacity: index === currentIndex ? "1" : "0.6" }}
-                                    src={image} alt="something"
-                                    onClick={() => setCurrentIndex(index)}
-                                />
-
+                        images && images.length
+                            ? images.map((_, index) =>
+                                <button
+                                    key={index}
+                                    onClick={() => setCurrentImageIndex(index)}
+                                    className={currentImageIndex === index
+                                        ? "indicator active-indicator"
+                                        : "indicator inactive-indicator"}
+                                ></button>
                             )
-                        })
+                            : null
                     }
-                </div>
+                </span>
+
             </div>
         </div>
     )

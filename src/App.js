@@ -10,7 +10,7 @@ function App() {
       {/* <AccordionBlock /> */}
       {/* <RandomColorGenerator /> */}
       {/* <StarRating /> */}
-      <ImageSlider />
+      <ImageSlider url={""} page={"1"} limit={"10"} />
     </div>
   );
 }
