@@ -6,31 +6,54 @@ import { useEffect, useState } from "react";
 export default function ImageSlider({ url, limit = 10, page = 1 }) {
     const [images, setImages] = useState([]);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const [errorMessage, setErrorMessage] = useState(null);
-
-    async function fetchImages(fetchUrl) {
-        try {
-            const response = await fetch(`${fetchUrl}?page=${page}&limit=${limit}`);
-            const data = await response.json();
-
-            if (data) {
-                setImages(data);
-                setCurrentImageIndex(0);
-            }
-
-        } catch (error) {
-            setErrorMessage(error.message);
-        }
-    }
+    const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         if (url !== "") {
             fetchImages(url);
         }
-    }, [url]);
 
-    if (errorMessage !== null) {
-        return <div>{errorMessage}</div>
+        async function fetchImages(fetchUrl) {
+            fetch(`${fetchUrl}?page=${page}&limit=${limit}`)
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw response;
+                })
+                .then((data) => { setImages(data) })
+                .catch((error) => {
+                    console.log("Error while fetching data: " + error);
+                    setError(error.message);
+                })
+                .finally(() => {
+                    setIsLoading(false);
+                })
+
+            // try {
+            //     const response = await fetch(`${fetchUrl}?page=${page}&limit=${limit}`);
+            //     const data = await response.json();
+
+            //     if (data) {
+            //         setImages(data);
+            //         setCurrentImageIndex(0);
+            //         setLoading(false);
+            //     }
+
+            // } catch (error) {
+            //     setError(error.message);
+            //     setLoading(false);
+            // }
+        }
+    }, [url, limit, page]);
+
+    if (isLoading) {
+        return <div>Loading...</div>
+    }
+
+    if (error) {
+        return <div>{error}</div>
     }
 
     function arrowHandler(offset) {
@@ -48,9 +71,6 @@ export default function ImageSlider({ url, limit = 10, page = 1 }) {
         setCurrentImageIndex(currentImageIndex + offset);
     }
 
-    console.log(currentImageIndex);
-    console.log(images);
-
     return (
         <div className="container">
             <div className="slider-container">
@@ -58,13 +78,10 @@ export default function ImageSlider({ url, limit = 10, page = 1 }) {
                     &larr;
                 </button>
 
-                {images && images.length
-                    ? <img
-                        className="main-image"
-                        src={images[currentImageIndex].download_url}
-                        alt={`Made by ${images[currentImageIndex].author}`} />
-                    : null
-                }
+                <img
+                    className="main-image"
+                    src={images[currentImageIndex].download_url}
+                    alt={`Made by ${images[currentImageIndex].author}`} />
 
                 <button className="arrow right-arrow" onClick={() => arrowHandler(1)}>
                     &rarr;
