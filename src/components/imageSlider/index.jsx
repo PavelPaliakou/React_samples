@@ -1,8 +1,6 @@
 import "./styles.css";
 import { useEffect, useState } from "react";
 
-//TODO: why doesn't work without images check?
-
 export default function ImageSlider({ url, limit = 10, page = 1 }) {
     const [images, setImages] = useState([]);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
