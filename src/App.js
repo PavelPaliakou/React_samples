@@ -12,7 +12,7 @@ function App() {
       {/* <RandomColorGenerator /> */}
       {/* <StarRating /> */}
       {/* <ImageSlider url={"https://picsum.photos/v2/list"} page={"1"} limit={"10"} /> */}
-      <LoadMore />
+      {/* <LoadMore /> */}
     </div>
   );
 }

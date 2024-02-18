@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./styles.css";
 
-//FIXME: doesn't work
+//TODO: This shit never works!! Need fix react by itself!!!!!!!!!!!
 
 export default function LoadMore() {
     const [products, setProducts] = useState([]);
@@ -16,26 +16,44 @@ export default function LoadMore() {
     useEffect(() => {
         async function fetchProducts() {
             try {
-                const response = await fetch(
-                    `${baseUrl}?limit=${limit}&skip=${count === 0
-                        ? 0
-                        : count * limit}`
-                );
+                let skip;
 
+                if (count === 0) {
+                    skip = 0;
+                } else {
+                    skip = count * limit;
+                }
+
+                console.log("skip = " + skip);
+
+                const response = await fetch(`${baseUrl}?limit=${limit}&skip=${skip}`);
                 if (!response.ok) {
                     throw response;
                 }
 
+                console.log(response);
                 const data = await response.json();
 
-                setProducts((prevData) => [...prevData, ...data.products]);
+                console.log("data = " + data);
+                console.log("Length of products: " + products.length);
 
-                console.log(products);
-                
+                if (products.length === 0) {
+                    console.log("The length = 0");
+                    setProducts(data.products);
+                    console.log("Must set the products");
+                } else {
+                    console.log("The length is not 0");
+                    let newProducts = products.concat(data.products);
+                    console.log("newProducts = " + newProducts);
+                    setProducts(newProducts);
+                }
+
             } catch (e) {
                 console.log(e);
                 setLoading(false);
                 setError(e.massage);
+            } finally {
+                setLoading(false);
             }
         }
 
@@ -56,11 +74,11 @@ export default function LoadMore() {
         //     .finally(() => {
         //         setLoading(false);
         //     })
-    }, [count]);
+    }, []);
 
 
     useEffect(() => {
-        if (products && products.length === 100) {
+        if (products.length === 100) {
             setDisableButton(true);
         }
     }, [products]);
@@ -73,7 +91,8 @@ export default function LoadMore() {
         return <div>Loading...</div>;
     }
 
-    console.log(products);
+    console.log("Products: " + products);
+    console.log("Products[0]: " + products[0]);
 
     return (
         <div className="container">
