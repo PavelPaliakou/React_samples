@@ -16,8 +16,7 @@ export default function LoadMore() {
     useEffect(() => {
         async function fetchProducts() {
             try {
-                let skip;
-
+                let skip = 0;
                 if (count === 0) {
                     skip = 0;
                 } else {
@@ -37,16 +36,18 @@ export default function LoadMore() {
                 console.log("data = " + data);
                 console.log("Length of products: " + products.length);
 
-                if (products.length === 0) {
-                    console.log("The length = 0");
-                    setProducts(data.products);
-                    console.log("Must set the products");
-                } else {
-                    console.log("The length is not 0");
-                    let newProducts = products.concat(data.products);
-                    console.log("newProducts = " + newProducts);
-                    setProducts(newProducts);
-                }
+                setProducts(data.products);
+
+                // if (products.length === 0) {
+                //     console.log("The length = 0");
+                //     setProducts(data.products);
+                //     console.log("Must set the products");
+                // } else {
+                //     console.log("The length is not 0");
+                //     let newProducts = products.concat(data.products);
+                //     console.log("newProducts = " + newProducts);
+                //     setProducts(newProducts);
+                // }
 
             } catch (e) {
                 console.log(e);
@@ -74,14 +75,14 @@ export default function LoadMore() {
         //     .finally(() => {
         //         setLoading(false);
         //     })
-    }, []);
+    });
 
 
-    useEffect(() => {
-        if (products.length === 100) {
-            setDisableButton(true);
-        }
-    }, [products]);
+    // useEffect(() => {
+    //     if (products.length === 100) {
+    //         setDisableButton(true);
+    //     }
+    // }, [products]);
 
     if (error) {
         return <div>Error: {error}</div>;
