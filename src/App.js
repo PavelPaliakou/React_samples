@@ -1,4 +1,5 @@
 import './App.css';
+import TreeView from './components/treeView';
 // import LoadMore from './components/loadMore';
 // import AccordionBlock from './components/accordion';
 // import RandomColorGenerator from './components/colorGenerator';
@@ -19,7 +20,7 @@ function App() {
       {/* Fetch doesn't work because React is fucking shit!!!!!!!!!!!!
       <LoadMore /> */}
 
-      
+      <TreeView />
     </div>
   );
 }
