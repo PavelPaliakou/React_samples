@@ -1,5 +1,5 @@
 import "./styles.css";
-import {menus } from "./data.js";
+import { menuTree } from "./data.js";
 import MenuList from "./menuList.jsx";
 
 export default function TreeView() {
@@ -9,7 +9,7 @@ export default function TreeView() {
         <div className="container">
             <div className="side-menu">
                 <h1>Tree View</h1>
-                <MenuList list = {menus} />
+                <MenuList list={menuTree} />
             </div>
             <div className="content"></div>
         </div>

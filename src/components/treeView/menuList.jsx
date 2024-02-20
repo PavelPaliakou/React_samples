@@ -1,22 +1,21 @@
 import MenuElement from "./menuElement"
 
-export default function MenuList(list = []) {
-    console.log(list);
+export default function MenuList({ list = 0 }) {
+    // console.log(list);
 
     return (
-        <>
+        <div className="menu-container">
             {
-              list.map((e) => {
-                        console.log(e);
-                        return (
-                            <div>
-                                <MenuElement element={e} />
-                            </div>
-                        )
-                    })
+                list.map((e) => {
+                    return (
+                        <div>
+                            <MenuElement key={e.label} element={e} />
+                        </div>
+                    )
+                })
 
-                
+
             }
-        </>
+        </div>
     )
 }

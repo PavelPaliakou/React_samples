@@ -29,3 +29,27 @@
     width: 75%;
     height: 100%;
 }
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 1rem;
+}
+
+.tree-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.item-expand {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}

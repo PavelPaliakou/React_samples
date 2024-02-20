@@ -1,4 +1,4 @@
-export const menus = [
+export const menuTree = [
     {
         label: "Home",
         to: "/",
