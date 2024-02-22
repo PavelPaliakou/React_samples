@@ -1,5 +1,6 @@
 import './App.css';
-import QRCodeGenerator from './components/qrCodeGenerator';
+import DarkLightMode from './components/darkLightMode';
+// import QRCodeGenerator from './components/qrCodeGenerator';
 // import TreeView from './components/treeView';
 // import LoadMore from './components/loadMore';
 // import AccordionBlock from './components/accordion';
@@ -23,7 +24,9 @@ function App() {
 
       {/* <TreeView /> */}
       
-      <QRCodeGenerator />
+      {/* <QRCodeGenerator /> */}
+
+      <DarkLightMode />
     </div>
   );
 }
