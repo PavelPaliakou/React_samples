@@ -23,6 +23,7 @@
     min-height: 100vh;
     background-color: var(--background);
     color: var(--text-color);
+    transition: all 0.5s;
 }
 
 .dark-light-container {
@@ -33,6 +34,7 @@
 }
 
 button {
+    cursor: pointer;
     padding: 1rem;
     background-color: var(--button-bg);
     color: var(--button-text-color);

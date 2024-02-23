@@ -1,5 +1,6 @@
 import './App.css';
-import DarkLightMode from './components/darkLightMode';
+// import DarkLightMode from './components/darkLightMode';
+import CustomScrollIndicator from './customScrollIndicator';
 // import QRCodeGenerator from './components/qrCodeGenerator';
 // import TreeView from './components/treeView';
 // import LoadMore from './components/loadMore';
@@ -26,7 +27,9 @@ function App() {
       
       {/* <QRCodeGenerator /> */}
 
-      <DarkLightMode />
+      {/* <DarkLightMode /> */}
+
+      <CustomScrollIndicator />
     </div>
   );
 }
