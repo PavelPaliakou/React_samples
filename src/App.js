@@ -1,6 +1,7 @@
 import './App.css';
+import CustomTabs from './components/customTabs';
 // import DarkLightMode from './components/darkLightMode';
-import CustomScrollIndicator from './customScrollIndicator';
+// import CustomScrollIndicator from './customScrollIndicator';
 // import QRCodeGenerator from './components/qrCodeGenerator';
 // import TreeView from './components/treeView';
 // import LoadMore from './components/loadMore';
@@ -29,7 +30,9 @@ function App() {
 
       {/* <DarkLightMode /> */}
 
-      <CustomScrollIndicator />
+      {/* <CustomScrollIndicator /> */}
+
+      <CustomTabs />
     </div>
   );
 }
