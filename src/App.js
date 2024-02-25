@@ -1,5 +1,6 @@
 import './App.css';
-import CustomTabs from './components/customTabs';
+import CustomModalPopup from './components/customModalPopup';
+// import CustomTabs from './components/customTabs';
 // import DarkLightMode from './components/darkLightMode';
 // import CustomScrollIndicator from './customScrollIndicator';
 // import QRCodeGenerator from './components/qrCodeGenerator';
@@ -32,7 +33,9 @@ function App() {
 
       {/* <CustomScrollIndicator /> */}
 
-      <CustomTabs />
+      {/* <CustomTabs /> */}
+
+      <CustomModalPopup />
     </div>
   );
 }
