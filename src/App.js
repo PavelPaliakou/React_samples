@@ -1,5 +1,6 @@
 import './App.css';
-import CustomModalPopup from './components/customModalPopup';
+import GithubSearch from './components/githubSearch';
+// import CustomModalPopup from './components/customModalPopup';
 // import CustomTabs from './components/customTabs';
 // import DarkLightMode from './components/darkLightMode';
 // import CustomScrollIndicator from './customScrollIndicator';
@@ -35,7 +36,9 @@ function App() {
 
       {/* <CustomTabs /> */}
 
-      <CustomModalPopup />
+      {/* <CustomModalPopup /> */}
+
+      <GithubSearch />
     </div>
   );
 }
