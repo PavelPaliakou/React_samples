@@ -8,6 +8,7 @@ export default function GithubSearch() {
     const [userName, setUserName] = useState("tom");
     const [loading, setLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
+
     const url = "https://api.github.com/users/";
 
     function handleSubmit(event) {
@@ -17,6 +18,7 @@ export default function GithubSearch() {
         const inputUserName = fromData.get("search-by-username");
 
         setUserName(inputUserName);
+        event.target.reset();
     }
 
     useEffect(() => {

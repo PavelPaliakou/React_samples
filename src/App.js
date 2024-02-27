@@ -1,5 +1,6 @@
 import './App.css';
-import GithubSearch from './components/githubSearch';
+import AutocompleteSearch from './components/autocompleteSearch';
+// import GithubSearch from './components/githubSearch';
 // import CustomModalPopup from './components/customModalPopup';
 // import CustomTabs from './components/customTabs';
 // import DarkLightMode from './components/darkLightMode';
@@ -38,7 +39,9 @@ function App() {
 
       {/* <CustomModalPopup /> */}
 
-      <GithubSearch />
+      {/* <GithubSearch /> */}
+
+      <AutocompleteSearch />
     </div>
   );
 }
