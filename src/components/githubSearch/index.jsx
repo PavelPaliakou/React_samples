@@ -55,10 +55,7 @@ export default function GithubSearch() {
                         type="text"
                         name="search-by-username"
                         placeholder="Enter github username"/>
-                        {/* value={userName} */}
-                        {/* onChange={(e) => setUserName(e.target.value)} */}
                     <button type="submit" >Search</button>
-                    {/* onClick={() => handleSubmit()} */}
                 </form>
             {
                 loading
