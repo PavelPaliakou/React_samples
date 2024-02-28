@@ -1,5 +1,7 @@
 import './App.css';
-import AutocompleteSearch from './components/autocompleteSearch';
+import FeatureFlags from './components/featureFlag';
+import FeatureFlagGlobalState from './components/featureFlag/context';
+// import AutocompleteSearch from './components/autocompleteSearch';
 // import GithubSearch from './components/githubSearch';
 // import CustomModalPopup from './components/customModalPopup';
 // import CustomTabs from './components/customTabs';
@@ -17,18 +19,18 @@ function App() {
   return (
     <div className="App">
       {/* <AccordionBlock /> */}
-      
+
       {/* <RandomColorGenerator /> */}
-      
+
       {/* <StarRating /> */}
-      
+
       {/* <ImageSlider url={"https://picsum.photos/v2/list"} page={"1"} limit={"10"} /> */}
-      
+
       {/* Fetch doesn't work because React is fucking shit!!!!!!!!!!!!
       <LoadMore /> */}
 
       {/* <TreeView /> */}
-      
+
       {/* <QRCodeGenerator /> */}
 
       {/* <DarkLightMode /> */}
@@ -41,7 +43,11 @@ function App() {
 
       {/* <GithubSearch /> */}
 
-      <AutocompleteSearch />
+      {/* <AutocompleteSearch /> */}
+
+      <FeatureFlagGlobalState>
+        <FeatureFlags />
+      </FeatureFlagGlobalState>
     </div>
   );
 }

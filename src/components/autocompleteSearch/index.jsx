@@ -1,29 +1,20 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import "./styles.css";
 import Suggestions from "./suggestions";
-
-// User: id, firstName, age
-
-//TODO: change userList. styles. 
+import "./styles.css";
 
 export default function AutocompleteSearch() {
-    const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
+    const [names, setNames] = useState([]);
     const [searchParam, setSearchParam] = useState("");
     const [showDropdown, setShowDropdown] = useState(false);
     const [filteredUsers, setFilteredUsers] = useState([]); 
-    const [names, setNames] = useState([]);
 
     const url = "https://dummyjson.com/users?limit=0";
 
     function handleChange(event) {
         const query = event.target.value.toLowerCase();
-
-        console.log("users: " + users);
-        console.log("usersName: " + names);
-        console.log("query: " + query);
 
         setSearchParam(query);
 
@@ -45,31 +36,30 @@ export default function AutocompleteSearch() {
         setSearchParam(event.target.innerText);
     }
 
-    async function fetchUsers() {
-        fetch(`${url}`)
-        .then((response) => {
-            if (response.ok) {
-                setErrorMessage("");
-                return response.json();
-            }
-            throw response;
-        })
-        .then((data)=> {
-            if (data) {
-                setErrorMessage("");
-                setNames(data.users.map((user) => user.firstName))
-                return setUsers(data.users);
-            }
-            throw new Error("Error while fetching data");
-        })
-        .catch((error) => {
-            console.log(error);
-            setErrorMessage(error.message);
-        })
-        .finally(() => {setLoading(false)})
-    }
-
     useEffect(() => {
+        async function fetchUsers() {
+            fetch(`${url}`)
+            .then((response) => {
+                if (response.ok) {
+                    setErrorMessage("");
+                    return response.json();
+                }
+                throw response;
+            })
+            .then((data)=> {
+                if (data) {
+                    setErrorMessage("");
+                    return setNames(data.users.map((user) => user.firstName))
+                }
+                throw new Error("Error while fetching data");
+            })
+            .catch((error) => {
+                console.log(error);
+                setErrorMessage(error.message);
+            })
+            .finally(() => {setLoading(false)})
+        }
+
         fetchUsers();
     },[]);
 
