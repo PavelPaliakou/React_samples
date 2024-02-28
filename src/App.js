@@ -1,6 +1,7 @@
 import './App.css';
-import FeatureFlags from './components/featureFlag';
-import FeatureFlagGlobalState from './components/featureFlag/context';
+import TestCustomUseFetchHook from './components/customUseFetchHook/test';
+// import FeatureFlags from './components/featureFlag';
+// import FeatureFlagGlobalState from './components/featureFlag/context';
 // import AutocompleteSearch from './components/autocompleteSearch';
 // import GithubSearch from './components/githubSearch';
 // import CustomModalPopup from './components/customModalPopup';
@@ -45,9 +46,11 @@ function App() {
 
       {/* <AutocompleteSearch /> */}
 
-      <FeatureFlagGlobalState>
+      {/* <FeatureFlagGlobalState>
         <FeatureFlags />
-      </FeatureFlagGlobalState>
+      </FeatureFlagGlobalState> */}
+
+      <TestCustomUseFetchHook />
     </div>
   );
 }
