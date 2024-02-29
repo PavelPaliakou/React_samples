@@ -1,5 +1,6 @@
 import './App.css';
 import TestCustomUseFetchHook from './components/customUseFetchHook/test';
+import TestUseOutsideClickHook from './components/customUseOutsideClickHook/test';
 // import FeatureFlags from './components/featureFlag';
 // import FeatureFlagGlobalState from './components/featureFlag/context';
 // import AutocompleteSearch from './components/autocompleteSearch';
@@ -51,6 +52,8 @@ function App() {
       </FeatureFlagGlobalState> */}
 
       <TestCustomUseFetchHook />
+
+      <TestUseOutsideClickHook />
     </div>
   );
 }
