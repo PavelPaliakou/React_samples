@@ -1,6 +1,7 @@
 import './App.css';
-import TestCustomUseFetchHook from './components/customUseFetchHook/test';
-import TestUseOutsideClickHook from './components/customUseOutsideClickHook/test';
+import TestUseResponsiveHook from './components/CustomUseResponsiveHook/test';
+// import TestCustomUseFetchHook from './components/customUseFetchHook/test';
+// import TestUseOutsideClickHook from './components/customUseOutsideClickHook/test';
 // import FeatureFlags from './components/featureFlag';
 // import FeatureFlagGlobalState from './components/featureFlag/context';
 // import AutocompleteSearch from './components/autocompleteSearch';
@@ -51,9 +52,11 @@ function App() {
         <FeatureFlags />
       </FeatureFlagGlobalState> */}
 
-      <TestCustomUseFetchHook />
+      {/* <TestCustomUseFetchHook /> */}
 
-      <TestUseOutsideClickHook />
+      {/* <TestUseOutsideClickHook /> */}
+
+      <TestUseResponsiveHook />
     </div>
   );
 }

@@ -13,7 +13,7 @@ export default function TestUseOutsideClickHook(){
             {
                 showContent
                 ? <div ref={ref} style={{backgroundColor: "whitesmoke"}}>
-                    <p>Some hidden content</p>
+                    <p>Click outside of this block to hide the content</p>
                     <p>Some hidden content</p>
                     <p>Some hidden content</p>
                     <p>Some hidden content</p>
