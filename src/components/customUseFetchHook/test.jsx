@@ -1,9 +1,7 @@
 import useFetch from ".";
 
 export default function TestCustomUseFetchHook() {
-    const { data, loading, error } = useFetch(`https://dummyjson.com/products`, {});
-
-    console.log(data, loading, error);
+    const { data, loading, error } = useFetch(`https://dummyjson.com/products?limit=0`, {});
 
     return (
         <div>
