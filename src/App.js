@@ -1,4 +1,5 @@
 import './App.css';
+import ScrollToParticularSection from './components/scroolToParticularSection';
 // import TestUseResponsiveHook from './components/CustomUseResponsiveHook/test';
 // import TopBottomScrollButton from './components/topBottomScrollButton';
 // import TestCustomUseFetchHook from './components/customUseFetchHook/test';
@@ -60,6 +61,8 @@ function App() {
       {/* <TestUseResponsiveHook /> */}
 
       {/* <TopBottomScrollButton /> */}
+
+      <ScrollToParticularSection />
     </div>
   );
 }
