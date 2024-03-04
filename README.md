@@ -1,4 +1,4 @@
-# 25 simple projects on React
+# 15 simple projects on React
 
 ## Getting Started with Create React App
 
