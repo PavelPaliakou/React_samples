@@ -1,10 +1,22 @@
 const mockApiResponse = {
-    showLightAndDarkMode: false,
-    showStarRating: true,
-    showRandomColorGenerator: true,
     showAccordion: true,
+    showAutocompleteSearch: true,
+    showColorGenerator: true,
+    showCustomModalPopup: true,
+    showCustomScrollIndicator: true,
+    showCustomTabs: true,
+    showCustomUseFetchHook: true,
+    showCustomUseOutsideClickHook: true,
+    showCustomUseResponsiveHook: true,
+    showDarkLightMode: true,
+    showGitHubSearch: true,
+    showImageSlider: true,
+    showLoadMore: true,
+    showQRCodeGenerator: true,
+    showScrollToParticularSection: true,
+    showStarRating: true,
+    showTopBottomScrollButton: true,
     showTreeView: true,
-    showTabs: true
 };
 
 export default function featureFlagsDataServiceCall() {
