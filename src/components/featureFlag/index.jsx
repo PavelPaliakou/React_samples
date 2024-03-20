@@ -21,7 +21,6 @@ import { FeatureFlagsContext } from "./context";
 import "./styles.css";
 import { useContext } from "react";
 
-//TODO: add all components
 //TODO: add styles and show list of components
 
 export default function FeatureFlags() {
@@ -30,29 +29,77 @@ export default function FeatureFlags() {
 
     const componentsToRender = [
         {
+            key: "showAccordion",
+            component: <AccordionBlock />
+        },
+        {
+            key: "showAutocompleteSearch",
+            component: <AutocompleteSearch />
+        },
+        {
             key: "showRandomColorGenerator",
             component: <RandomColorGenerator />
+        },
+        {
+            key: "showCustomModalPopup",
+            component: <CustomModalPopup />
+        },
+        {
+            key: "showCustomScrollIndicator",
+            component: <CustomScrollIndicator />
+        },
+        {
+            key: "showTabs",
+            component: <CustomTabs />
+        },
+        {
+            key: "showCustomUseFetchHook",
+            component: <TestCustomUseFetchHook />
+        },
+        {
+            key: "showCustomUseOutsideClickHook",
+            component: <TestUseOutsideClickHook />
+        },
+        {
+            key: "showCustomUseResponsiveHook",
+            component: <TestUseResponsiveHook />
         },
         {
             key: "showLightAndDarkMode",
             component: <DarkLightMode />
         },
         {
+            key: "showGithubSearch",
+            component: <GithubSearch />
+        },
+        {
+            key: "showImageSlider",
+            component: <ImageSlider />
+        },
+        {
+            key: "showLoadMore",
+            component: <LoadMore />
+        },
+        {
+            key: "showQRCodeGenerator",
+            component: <QRCodeGenerator />
+        },
+        {
+            key: "showScrollToParticularSection",
+            component: <ScrollToParticularSection />
+        },
+        {
             key: "showStarRating",
             component: <StarRating />
         },
         {
-            key: "showAccordion",
-            component: <AccordionBlock />
+            key: "showTopBottomScrollButton",
+            component: <TopBottomScrollButton />
         },
         {
             key: "showTreeView",
             component: <TreeView />
         },
-        {
-            key: "showTabs",
-            component: <CustomTabs />
-        }
     ];
 
     function checkEnabledFlags(currentKey) {
@@ -79,7 +126,7 @@ export default function FeatureFlags() {
         <div className="container">
             <h1>Feature Flag</h1>
             {
-                componentsToRender.map((element) => 
+                componentsToRender.map((element) =>
                     checkEnabledFlags(element.key)
                         ? element.component
                         : null
